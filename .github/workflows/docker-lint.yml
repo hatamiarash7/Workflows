@@ -2,6 +2,13 @@ name: Docker Lint
 
 on:
   workflow_call:
+    inputs:
+      ignore:
+        required: false
+        type: string
+      file:
+        required: true
+        type: string
 
 jobs:
   Lint:
@@ -13,7 +20,7 @@ jobs:
       - name: Lint Docker files
         uses: hadolint/hadolint-action@v2.1.0
         with:
-          dockerfile: Dockerfile
+          dockerfile: ${{ inputs.file }}
           recursive: true
           verbose: true
-          ignore: "DL3008,DL3025"
+          ignore: ${{ inputs.ignore }}
