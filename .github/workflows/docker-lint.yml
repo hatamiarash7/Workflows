@@ -18,7 +18,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Lint Docker files
-        uses: hadolint/hadolint-action@v2.1.0
+        uses: hadolint/hadolint-action@v3.1.0
         with:
           dockerfile: ${{ inputs.file }}
           recursive: true
